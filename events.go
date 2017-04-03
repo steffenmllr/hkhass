@@ -37,7 +37,7 @@ func ListenToEvents(client *HAClient, host string, port int, password string) er
 				panic(err)
 			}
 
-			if (message.EventType == "state_changed") {
+			if message.EventType == "state_changed" {
 				client.emitter.Publish(message.Data.EntityID, message.Data.NewState.State, message.Data.OldState.State)
 			}
 		}

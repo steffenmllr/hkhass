@@ -7,7 +7,7 @@ import (
 
 type HassSwitch struct {
 	switchAccessory *accessory.Switch
-	EntityID string
+	EntityID        string
 }
 
 func NewHassSwitch(state Hkstate, client *HAClient) *HassSwitch {
@@ -17,7 +17,7 @@ func NewHassSwitch(state Hkstate, client *HAClient) *HassSwitch {
 		entityName = state.Attributes.homebridgeName
 	}
 
-	if entityName== "" {
+	if entityName == "" {
 		s := strings.Split(identifier, ".")
 		entityName = s[len(s)-1]
 	}
@@ -28,7 +28,7 @@ func NewHassSwitch(state Hkstate, client *HAClient) *HassSwitch {
 	})
 
 	hswitch := &HassSwitch{
-		EntityID: identifier,
+		EntityID:        identifier,
 		switchAccessory: acc,
 	}
 

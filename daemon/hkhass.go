@@ -1,14 +1,14 @@
 package main
 
 import (
+	"flag"
 	"github.com/brutella/hc"
 	"github.com/brutella/hc/accessory"
 	"github.com/brutella/hc/log"
 	"github.com/steffenmllr/hkhass"
 	"net/http"
-	"flag"
-	"strings"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -23,7 +23,6 @@ func createBridge() *accessory.Accessory {
 	return accessory.New(info, accessory.TypeBridge)
 }
 
-
 func contains(slice []string, item string) bool {
 	set := make(map[string]struct{}, len(slice))
 	for _, s := range slice {
@@ -33,8 +32,6 @@ func contains(slice []string, item string) bool {
 	_, ok := set[item]
 	return ok
 }
-
-
 
 func main() {
 
@@ -46,11 +43,11 @@ func main() {
 		verboseArg  = flag.Bool("verbose", false, "Verbose; default false")
 	)
 
-    flag.Parse()
+	flag.Parse()
 
-    if (*verboseArg == true) {
+	if *verboseArg == true {
 		log.Debug.Enable()
-    }
+	}
 
 	httpClient := http.Client{
 		Timeout: time.Second * 2,
@@ -67,7 +64,7 @@ func main() {
 		log.Info.Panic(err)
 	}
 
-	supportedTypes := []string{"switch"}
+	supportedTypes := []string{"switch", "light"}
 	accessories := []*accessory.Accessory{}
 
 	for _, entity := range states {
@@ -79,8 +76,12 @@ func main() {
 		if isSupported == false || entity.Attributes.Hidden == true {
 			continue
 		}
+
 		if entityType == "switch" {
 			acc := hkhass.NewHassSwitch(entity, haClient)
+			accessories = append(accessories, acc.GetHCAccessory())
+		} else if entityType == "light" {
+			acc := hkhass.NewHassLight(entity, haClient)
 			accessories = append(accessories, acc.GetHCAccessory())
 		}
 	}
