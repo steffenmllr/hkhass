@@ -1,0 +1,49 @@
+{
+	"ImportPath": "github.com/steffenmllr/hkhass",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/asaskevich/EventBus",
+			"Rev": "52a0dcfcbd8299da13aad44b96a6642dd79cbb08"
+		},
+		{
+			"ImportPath": "github.com/brutella/hc/accessory",
+			"Comment": "v0.1.0-48-g4bb64af",
+			"Rev": "4bb64afad1b18074aeeede35dfbb2197c88976ab"
+		},
+		{
+			"ImportPath": "github.com/brutella/hc/characteristic",
+			"Comment": "v0.1.0-48-g4bb64af",
+			"Rev": "4bb64afad1b18074aeeede35dfbb2197c88976ab"
+		},
+		{
+			"ImportPath": "github.com/brutella/hc/log",
+			"Comment": "v0.1.0-48-g4bb64af",
+			"Rev": "4bb64afad1b18074aeeede35dfbb2197c88976ab"
+		},
+		{
+			"ImportPath": "github.com/brutella/hc/service",
+			"Comment": "v0.1.0-48-g4bb64af",
+			"Rev": "4bb64afad1b18074aeeede35dfbb2197c88976ab"
+		},
+		{
+			"ImportPath": "github.com/dghubble/sling",
+			"Comment": "v1.1.0-4-gbbfb829",
+			"Rev": "bbfb8293bd33a6baad33d718aacf66ef73a29f30"
+		},
+		{
+			"ImportPath": "github.com/google/go-querystring/query",
+			"Rev": "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
+		},
+		{
+			"ImportPath": "github.com/gosexy/to",
+			"Rev": "c20e083e31230b84ffa23c5d2fb0bc55f5292681"
+		},
+		{
+			"ImportPath": "github.com/r3labs/sse",
+			"Comment": "1.0.0-8-gfe0d794",
+			"Rev": "fe0d79422ab1c3194a33b9b3faa690f5ae9c04f9"
+		}
+	]
+}
